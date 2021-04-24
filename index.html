@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="ja">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=UTF-8">
+    <title>SkyWay Twincam Video</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pure-g">
+
+        <!-- Video area -->
+        <div class="pure-u-2-3" id="video-container">
+            <video id="their-video" autoplay playsinline></video>
+            <video id="my-video" muted="true" autoplay playsinline></video>
+        </div>
+
+        <!-- Steps -->
+        <div class="pure-u-1-3">
+            <h2>SkyWay Video Chat</h2>
+
+            <p>Your id: <span id="my-id">...</span></p>
+            <p>Options >> isRecieve: <span id="isrcv">false</span>, VIDEO CODEC: <span id="videocod">VP9</span></p>
+            <div id="peerid-ui">
+                <p>select your id</p>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincamL">TwinCamLeft</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincamR">TwinCamRight</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam1">TwinCam1</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam2">TwinCam2</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam3">TwinCam3</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam4">TwinCam4</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam5">TwinCam5</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam6">TwinCam6</button>
+                <br>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="room1left">Room1Left</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="room1right">Room1Right</button>
+                <br>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="room2left">Room2Left</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="room2right">Room2Right</button>
+                <br>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="room3left">Room3Left</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="room3right">Room3Right</button>
+                <br>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="recieve">Recieve</button>
+                <button href="#" class="pure-button pure-button-secondary" type="button" id="random">Random</button>
+            </div>
+
+            <h3>Make a call</h3>
+            <form id="make-call" class="pure-form">
+                <input type="text" placeholder="Call user id..." id="callto-id">
+                <button href="#" class="pure-button pure-button-success" type="submit">Call</button>
+            </form>
+            <div id="end-call-ui">
+                <p>Currently in call with <span id="their-id">...</span></p>
+                <button href="#" class="pure-button pure-button-error" type="button" id="end-call">End call</button>
+                <p>
+                    <br>
+                    <button href="#" class="pure-button pure-button-hover" type="button" id="getting-stats">Getting stats</button>
+                    <button href="#" class="pure-button pure-button-hover" type="button" id="stop-acquiring-stats">Stop acquiring stats</button>
+                </p>
+            </div>
+            <div>
+                <p>getusermedia options</p>
+                <button href="#" class="pure-button pure-button-warning" type="button" id="4K30fps">4K 30fps</button>
+                <button href="#" class="pure-button pure-button-warning" type="button" id="4K15fps">4K 15fps</button>
+                <button href="#" class="pure-button pure-button-warning" type="button" id="FullHD">FullHD</button>
+                <button href="#" class="pure-button pure-button-warning" type="button" id="LocalRight">LocalHttpSourceRight</button>
+                <button href="#" class="pure-button pure-button-warning" type="button" id="LocalLeft">LocalHttpSourceLeft</button>
+                <br>
+                <form id="Resolution" class="pure-form">
+                    <input type="text" placeholder="Width" id="width">
+                    <input type="text" placeholder="Height" id="height">
+                    <input type="text" placeholder="FrameRate" id="framerate">
+                    <button href="#" class="pure-button-warning" type="submit">Set</button>
+                </form>
+            </div>
+            <div>
+                <br>
+                <button href="#" class="pure-button pure-button-error" type="button" id="reload">Reload</button>
+                <p id="console"></p>
+                <button href="#" class="pure-button pure-button-hover" type="button" id="vp9">VP9</button>
+                <button href="#" class="pure-button pure-button-hover" type="button" id="h264">H264</button>
+                <button href="#" class="pure-button pure-button-hover" type="button" id="sfu">SFU</button>
+                <button href="#" class="pure-button pure-button-hover" type="button" id="mesh">MESH</button>
+                <a id="downloadlink-video"></a>
+                <p id="local-video"></p>
+                <p id="remote-video"></p>
+                <a id="downloadlink-stats"></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!--jQueryを使っているので <body> → jQueryを使って記述したscript の順にすること-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</html>
